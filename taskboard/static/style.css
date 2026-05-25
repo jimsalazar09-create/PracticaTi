@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+/* ── Navbar ── */
+nav {
+  background: linear-gradient(90deg, #6999c9, #287ccf);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  background: linear-gradient(90deg, #6999c9, #3e6be7);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-nav {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.btn-nav:hover { background: #c0392b; }
+
+/* ── Main ── */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ── Filtros ── */
+.filtros form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filtros input,
+.filtros select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.filtros button {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ── Tarjetas ── */
+.tareas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-left: 4px solid #ccc;
+}
+
+.card.pendiente    { border-left-color: #e74c3c; }
+.card.en-progreso  { border-left-color: #f39c12; }
+.card.completada   { border-left-color: #27ae60; }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.prioridad {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.prioridad.alta  { background: #fde8e8; color: #e74c3c; }
+.prioridad.media { background: #fef3e2; color: #f39c12; }
+.prioridad.baja  { background: #e8f8f0; color: #27ae60; }
+
+.estado {
+  font-size: 11px;
+  color: #888;
+}
+
+.card h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card small {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-toggle {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-toggle:hover { background: #1a252f; }
+
+.card-actions a {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+}
+
+.card-actions a:hover { color: #e74c3c; }
+
+.vacio {
+  text-align: center;
+  color: #888;
+  margin-top: 3rem;
+  font-size: 15px;
+}
+
+.vacio a { color: #e74c3c; }
+
+/* ── Formularios ── */
+.form-container {
+  background: white;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.form-container label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-top: 12px;
+  color: #555;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.form-actions a {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.form-actions button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.form-actions button:hover { background: #c0392b; }

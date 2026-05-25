@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+<div class="filtros">
+  <form method="GET" action="/">
+    <input type="text" name="q" placeholder="Buscar tarea..." value="{{ q }}">
+    <select name="estado">
+      <option value="">Todos los estados</option>
+      <option value="pendiente"    {% if estado == "pendiente"    %}selected{% endif %}>Pendiente</option>
+      <option value="en progreso"  {% if estado == "en progreso"  %}selected{% endif %}>En progreso</option>
+      <option value="completada"   {% if estado == "completada"   %}selected{% endif %}>Completada</option>
+    </select>
+    <button type="submit">Filtrar</button>
+  </form>
+</div>
+
+<div class="tareas">
+  {% if tareas %}
+    {% for tarea in tareas %}
+    <div class="card {{ tarea.estado | replace(' ', '-') }}">
+      <div class="card-header">
+        <span class="prioridad {{ tarea.prioridad }}">{{ tarea.prioridad }}</span>
+        <span class="estado">{{ tarea.estado }}</span>
+      </div>
+      <h3>{{ tarea.titulo }}</h3>
+      <p>{{ tarea.descripcion }}</p>
+      {% if tarea.asignado_a %}
+        <small>👤 {{ tarea.asignado_a }}</small>
+      {% endif %}
+      <div class="card-actions">
+        <button class="btn-toggle" data-id="{{ tarea.id }}">Cambiar estado</button>
+        <a href="/editar/{{ tarea.id }}">Editar</a>
+        <a href="/eliminar/{{ tarea.id }}" onclick="return confirm('¿Eliminar esta tarea?')">Eliminar</a>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p class="vacio">No hay tareas todavía. <a href="/crear">¡Crea una!</a></p>
+  {% endif %}
+</div>
+
+{% endblock %}
